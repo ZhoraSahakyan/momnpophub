@@ -5,7 +5,6 @@ import './Header.css';
 import Logo from '../../assets/images/logo/momnpophub-logo.svg';
 import DefaultImage from '../../assets/images/default.png';
 
-import clsx from 'clsx';
 import {makeStyles} from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import List from '@material-ui/core/List';
@@ -85,7 +84,7 @@ const Header = () => {
 	);
 
 	return (
-		<div>
+		<React.Fragment>
 			<Navbar className="header-menu col-xl-11 mx-auto d-flex align-content-center justify-content-between"
 			        expand="xl">
 				<Navbar.Brand href="#home">
@@ -134,7 +133,7 @@ const Header = () => {
 
 				{list()}
 			</Drawer>
-		</div>
+		</React.Fragment>
 	)
 };
 
