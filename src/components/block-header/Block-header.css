@@ -1,0 +1,12 @@
+.orange-btn {
+  color: #FFB648;
+  font-weight: 500;
+  font-size: 16px;
+}
+.edit-btn {
+  margin-right: 13px;
+}
+
+.secttion-container__header{
+  border-bottom: 1px solid #E9E9E9;
+}
