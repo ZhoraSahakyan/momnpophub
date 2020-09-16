@@ -14,13 +14,13 @@ import Home from "../pages/home/Home";
 
 function App() {
     return (
-        <div className="App">
+        <div className="App main-container min-vh-100">
             <Header/>
 
             <Router>
                 <Switch>
                     <Route exact path="/" component={Home}/>
-                    <Route exact path="/business-home" component={BusinessHome}/>
+                    <Route path="/business-home" component={BusinessHome}/>
                     <Redirect to="/"/>
                 </Switch>
             </Router>
