@@ -11,7 +11,7 @@ const Details = () => {
         <div className=" d-flex flex-column h-100">
             <div className="flex-grow-1  d-flex flex-column">
                 <BlockHeader title="Deals" buttonText="+ Create new deal"/>
-                <div className="table-container flex-grow-1 px-0">
+                <div className="table-container flex-grow-1">
                     <Table className='details-table border-0 m-0'>
                         <thead>
                         <tr>
