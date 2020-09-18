@@ -1,3 +1,4 @@
+@import '~bootstrap/dist/css/bootstrap.min.css';
 body, .html {
   margin: 0;
   font-family: 'Montserrat', sans-serif !important;
@@ -9,7 +10,6 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
   monospace;
 }
-
 
 @font-face {
   font-family: 'fontello';
@@ -67,6 +67,8 @@ code {
   /* Uncomment for 3D effect */
   /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
 }
+
+
 .icon-linkedin:before { content: '\e800'; } /* '' */
 .icon-map-marker-alt:before { content: '\e801'; } /* '' */
 .icon-path:before { content: '\e802'; } /* '' */
@@ -96,3 +98,9 @@ code {
 .icon-google-play:before { content: '\e81a'; } /* '' */
 .icon-instagram:before { content: '\e81b'; } /* '' */
 .icon-trash:before { content: '\e81c'; } /* '' */
+.icon-close:before { content: '\e81d'; } /* '' */
+.icon-date:before { content: '\e81e'; } /* '' */
+.icon-image:before { content: '\e81f'; } /* '' */
+.icon-link:before { content: '\e820'; } /* '' */
+.icon-sync:before { content: '\e821'; } /* '' */
+.icon-check-circle:before { content: '\e822'; } /* '' */

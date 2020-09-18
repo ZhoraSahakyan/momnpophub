@@ -94,9 +94,8 @@ const Header = () => {
 				               onClick={toggleDrawer('right', true)}/>
 				<Navbar.Collapse id="basic-navbar-nav">
 					<Nav className="mr-auto">
-						<Nav.Link to="/home" className="header-menu__item d-flex align-items-center p-0 active">
-							About Us
-						</Nav.Link>
+						<Nav.Link href="#home" className="header-menu__item d-flex align-items-center p-0 active">About
+							Us</Nav.Link>
 						<Nav.Link href="#link" className="header-menu__item d-flex align-items-center p-0">Add Your
 							Business & Deals For <span className="ml-2"> FREE</span></Nav.Link>
 						<Nav.Link href="#link" className="header-menu__item d-flex align-items-center p-0">Customer &

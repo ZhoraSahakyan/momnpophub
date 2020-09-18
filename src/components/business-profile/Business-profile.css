@@ -40,8 +40,19 @@
   color: #FFB648;
   text-decoration: underline;
   margin-bottom: 20px;
+  font-size: 14px;
 }
-
+@media all and (max-width: 567px) {
+  .orange-link,
+  .orange-link:hover,
+  .orange-link:active,
+  .orange-link:focus{
+    margin-bottom: 10px;
+  }
+  .business-profile-page{
+    padding-bottom: 20px;
+  }
+}
 .business-profile-image {
   width: 60px;
   height: 60px;
@@ -71,4 +82,13 @@
 i.business-profile-icon {
   color: #D0D0D0;
   margin-right: 10px;
+}
+
+@media all and (max-width: 567px){
+  .settings,
+  .settings:hover,
+  .settings:focus{
+    width: 100%;
+    margin-top: 10px;
+  }
 }

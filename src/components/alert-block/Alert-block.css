@@ -1,0 +1,34 @@
+.alert-block {
+  box-shadow: 0 -5px 10px rgba(0, 0, 0, 0.07);
+  border-radius: 8px 8px 0 0;
+  padding: 18px 40px 20px 22px;
+  bottom: 0;
+  z-index: 10;
+  left: 0;
+  right: 0;
+  width: 90%;
+}
+
+.alert-block__img {
+  width: 56px;
+  height: 56px;
+  margin-right: 15px;
+}
+
+.alert-block__title {
+  font-weight: 600;
+}
+
+.alert-block__title,
+.alert-block__description {
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.alert-block__close,
+.alert-block__close:hover {
+  color: rgba(0, 0, 0, 0.2);
+  right: 20px;
+  top: 18px;
+  font-size: 16px;
+}

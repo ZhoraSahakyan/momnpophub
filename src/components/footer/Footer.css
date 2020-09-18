@@ -2,7 +2,11 @@
 .social-icon {
   margin-top: 80px;
 }
-
+@media all and (max-width: 567px) {
+  .social-icon {
+    margin-top: 20px;
+  }
+}
 .social-icon__link {
   width: 20px;
   height: 20px;
@@ -102,4 +106,10 @@
   background: linear-gradient(0deg, #FFFFFF -4886.72%, #FFB648 10353.91%);
   position: absolute;
   top: 0;
+}
+
+@media all and (max-width: 1250px) {
+  .footer-menu{
+    justify-content: center !important;
+  }
 }
