@@ -7,7 +7,7 @@ import './Existing-details.css';
 const ExistingDetails = () => {
     return (
                 <div className="table-container flex-grow-1">
-                    <Table className='details-table border-0 m-0'>
+                    <Table responsive className='details-table border-0 m-0'>
                         <thead>
                         <tr>
                             <th className="align-middle border-0">Deal name</th>

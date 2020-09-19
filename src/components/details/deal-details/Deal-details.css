@@ -1,0 +1,87 @@
+.total-container {
+  padding: 17px 20px;
+  display: grid;
+  grid-template-columns: repeat(4, calc((100% - 45px) / 4));
+  grid-gap: 15px;
+}
+@media all and (max-width: 567px){
+  .total-container {
+    grid-template-columns: repeat(2, calc((100% - 15px) / 2));
+  }
+}
+@media all and (min-width: 767px) and (max-width: 1100px){
+  .total-container {
+    grid-template-columns: repeat(2, calc((100% - 15px) / 2));
+  }
+}
+.deal-details {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+  box-shadow: 0 3px 4px rgba(0, 0, 0, 0.07);
+  border-radius: 8px;
+}
+
+.deal-details .title {
+  font-size: 14px;
+}
+
+.deal-details .secttion-container__header {
+  border: 0;
+  height: 55px;
+  padding:0 20px;
+}
+
+.deal-details__header {
+  background: #F9F9F9;
+}
+
+.total-block {
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-sizing: border-box;
+  box-shadow: 0 8px 10px rgba(0, 0, 0, 0.03);
+  border-radius: 8px;
+  color: #000;
+  padding: 15px 12px;
+}
+
+.total-block__title {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 22px;
+}
+
+.total-block__count {
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 22px;
+}
+
+.deal-table tr td,
+.deal-table tr td .user__name {
+  color: #000;
+  font-weight: 500;
+  font-size: 12px;
+}
+.deal-table tr td {
+  width: calc(100% / 4);
+  max-width: calc(100% / 4);
+}
+.deal-table tr:first-of-type td {
+  border-top: none;
+}
+
+.deal-details__footer {
+  border-top: 1px solid #E9E9E9;
+  padding: 13px;
+}
+
+.table-block {
+  border-left: 1px solid #F1F1F1;
+}
+.deal-table-container{
+  padding: 0 20px;
+}
+
+.table-responsive{
+  height: 100%;
+}

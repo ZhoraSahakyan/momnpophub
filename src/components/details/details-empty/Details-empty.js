@@ -2,7 +2,7 @@ import React from 'react';
 import {Button} from 'react-bootstrap'
 import './Details-empty.css';
 import detailsImage from './../../../assets/images/deals-illustration.svg'
-const DetailsEmpty = ({ createDeal }) => {
+const DetailsEmpty = () => {
     return (
         <div className="empty-details-container position-relative overflow-hidden">
             <div className="position-relative empty-details">
@@ -37,7 +37,6 @@ const DetailsEmpty = ({ createDeal }) => {
             </div>
             <div className="d-flex justify-content-center">
                 <Button variant="link" className="text-decoration-none shadow-none green-btn empty-details__btn w-auto"
-                        onClick={createDeal}
                         type="submit">
                     Create your first deal
                 </Button>

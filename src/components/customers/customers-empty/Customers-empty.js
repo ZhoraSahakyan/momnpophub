@@ -2,7 +2,7 @@ import React from 'react';
 import {Button} from 'react-bootstrap'
 import './Customers-empty.css';
 import customersImage from './../../../assets/images/illustration.svg'
-
+import AlertBlock from '../../alert-block'
 const CustomersEmpty = () => {
     return (
         <div className="customers-details-container position-relative overflow-hidden">
@@ -51,6 +51,7 @@ const CustomersEmpty = () => {
             <p className="customers-details__description text-center">
                 When someone purchases your deal, you’ll see the customer added here.
                 Meanwhile, you can import your customer data from <a href="" className="orange-link">Excel</a> or <a href="" className="orange-link">HubSpot</a></p>
+     <AlertBlock/>
         </div>
     )
 }

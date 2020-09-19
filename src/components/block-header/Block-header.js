@@ -9,7 +9,7 @@ const BlockHeader = ({title, buttonText, buttonIcon}) => {
 
     return (
         <header
-            className="d-flex justify-content-between justify-content-center secttion-container__header">
+            className="d-flex flex-wrap justify-content-between align-items-center secttion-container__header">
             <h2 className="title m-0  d-flex align-items-center">{title}</h2>
              <div className="d-flex">
                 <Button type="button" className="btn border-0 bg-transparent shadow-none p-0">

@@ -20,7 +20,7 @@ const CustomersSettings = () => {
                 <div className="d-flex position-relative item align-items-center">
                     <img src={Logo} className="link-logo position-absolute" alt=""/>
                     <Form.Group controlId="" className="settings-input flex-grow-1">
-                        <Form.Control placeholder="" value="hub.com/joinURL?jFHDhs" className="shadow-none"/>
+                        <Form.Control placeholder="" className="shadow-none"/>
                     </Form.Group>
                     <Button variant="link"
                             className="text-decoration-none add-link d-flex align-items-center justify-content-center shadow-none flex-shrink-0">

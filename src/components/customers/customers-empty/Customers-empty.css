@@ -84,7 +84,7 @@
 }
 
 .customers-details__image {
-  transform: translate(27%, -39%);
+  transform: translate(10%, -39%);
 }
 
 @media all and (max-width: 567px) {

@@ -1,3 +1,7 @@
+.logout-header {
+	background: url(./../../assets/images/header-bg.svg) no-repeat;
+	padding-bottom: 150px;
+}
 .header-menu .mr-auto.navbar-nav {
 	flex-grow: 1;
 	justify-content: center;
@@ -69,7 +73,12 @@
 .header-menu.navbar .header-menu__item.nav-link.active {
 	font-weight: 700;
 }
-
+@media all and (max-width: 1250px) {
+	.header-menu.navbar .header-menu__item.nav-link > span,
+	.header-menu.navbar .header-menu__item.nav-link.active {
+		font-size: 14px;
+	}
+}
 .header-menu.navbar .header-menu__item.nav-link::before {
 	content: '';
 	display: block;

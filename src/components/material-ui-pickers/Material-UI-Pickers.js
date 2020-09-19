@@ -9,7 +9,9 @@ import {
 } from '@material-ui/pickers';
 import './Material-UI-Pickers.css';
 
-const  MaterialUIPickers =({labelText})=> {
+const  MaterialUIPickers =({labelText,edit,dealDate})=> {
+
+    console.log(edit)
     // The first commit of Material-UI
     const [selectedDate, setSelectedDate] = React.useState(new Date('2014-08-18T21:11:54'));
 
@@ -19,7 +21,7 @@ const  MaterialUIPickers =({labelText})=> {
 
     return (
         <MuiPickersUtilsProvider utils={DateFnsUtils}>
-            <Grid container justify="space-around"  className="datepicer-container" >
+            <Grid container justify="space-around"  className="datepicer-container d-flex justify-content-start" >
                 <KeyboardDatePicker
                     disableToolbar
                     variant="inline"
@@ -27,7 +29,9 @@ const  MaterialUIPickers =({labelText})=> {
                     margin="normal"
                     id="date-picker-inline"
                     label={labelText}
+                    value={dealDate}
                     onChange={handleDateChange}
+                    disabled={!edit}
                     KeyboardButtonProps={{
                         'aria-label': 'change date',
                     }}

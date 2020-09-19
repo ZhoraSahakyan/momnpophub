@@ -84,7 +84,12 @@
   font-size: 16px;
   color: #1F1F1F
 }
-
+@media all and (max-width: 1250px) {
+  .footer-menu__item__link,
+  .footer-menu__item__link:hover {
+    font-size: 14px;
+  }
+}
 .footer-menu__item__link span {
   font-weight: 700;
 }
