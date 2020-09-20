@@ -12,6 +12,8 @@ import hubspotLogo from '../../assets/images/logo/hubspot-logo.svg'
 const SignupSuccess = () => {
     const [show, setShow] = useState(false);
     const [add, addCustomer] = useState(false);
+    const [isShow, showCustomers] = useState(false);
+    const [connected, connect] = useState(false);
     const [disabled, setDisabled] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
@@ -21,7 +23,7 @@ const SignupSuccess = () => {
         desc: 'Your account has  been created!'
     }
 
-    const connected = disabled ? `d-flex button-block d-flex align-items-center active selected` : `d-flex button-block d-flex align-items-center`;
+    const connectedClassNames = disabled ? `d-flex button-block d-flex align-items-center active selected` : `d-flex button-block d-flex align-items-center`;
     return (
         <div className="col-xl-11 mx-auto">
             <div className="row">
@@ -38,7 +40,7 @@ const SignupSuccess = () => {
                             to Mom n Pop Hub mobile app. </p>
                         <img className="button-block__logo flex-shrink-0" src={Logo} alt=""/>
                     </div>
-                    <div className={connected}>
+                    <div className={connectedClassNames}>
                         <div
                             className="circle-icon d-flex align-items-center justify-content-center rounded-circle flex-shrink-0">
                             <i className="icon-link"/>
@@ -48,8 +50,9 @@ const SignupSuccess = () => {
                     </div>
                     <div className="d-flex flex-column button-block">
                         <LoginModal show={show} disabled={disabled} handleClose={handleClose} handleShow={handleShow}
-                                    setDisabled={setDisabled}/>
+                                    setDisabled={() => {setDisabled(true); connect(true); showCustomers(true)}}/>
                         <Button variant="link"
+                                onClick={() => showCustomers(true)}
                                 className="connect-btn text-decoration-none shadow-none d-flex align-items-center justify-content-center">
                             <i className="icon-connect-list"/> Create your own customer list
                         </Button>
@@ -60,7 +63,7 @@ const SignupSuccess = () => {
                         </Button>
                     </div>
                 </div>
-                {disabled && <div className="col-xl-6 offset-xl-1 h-480 p-0 connect-block bg-white">
+                {isShow && <div className="col-xl-6 offset-xl-1 h-480 p-0 connect-block bg-white">
                     <div className="d-flex flex-column connect-block__content">
                         <header
                             className="d-flex justify-content-between justify-content-between secttion-container__header position-relative">
@@ -68,7 +71,7 @@ const SignupSuccess = () => {
                                 <h2 className="title m-0 d-flex align-items-center">
                                     <i className="icon-connect-list connect-icon"/>
                                     Customer List</h2>
-                                <img className="connect-image" src={hubspotLogo} alt=""/>
+                                {connected && <img className="connect-image" src={hubspotLogo} alt=""/>}
 
                             </div>
                             <div className="d-flex">

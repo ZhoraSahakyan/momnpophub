@@ -8,9 +8,11 @@ import CustomersEmpty from './customers-empty';
 
 
 import './Customers.css';
+import SearchBlock from "../search-block";
 
 const Customers = () => {
     const [tab, changeTab] = useState('empty');
+    const [add, addCustomers] = useState(false);
 
     return (
         <div className="bg-white secttion-container w-100 h-100 d-flex flex-column justify-content-between">
@@ -25,12 +27,13 @@ const Customers = () => {
                             <i className="icon-deals d-flex"/>
                         </Button>
                         <Button type="button"
-                                onClick={() => changeTab('excel')}
+                                onClick={() => {changeTab('excel'); addCustomers(false)}}
                                 className="btn btn-icon border-0 bg-transparent shadow-none p-0 d-flex align-items-center excel-icon">
                             <i className="icon-excel-icon-hover dropdown"/>
                             <i className="icon-excel-icon"/>
                         </Button>
                         <Button type="button"
+                                onClick={() => {addCustomers(!add); changeTab('excel')}}
                                 className="btn btn-icon border-0 bg-transparent shadow-none p-0">
                             <i className="icon-add-user"/>
                         </Button>
@@ -42,7 +45,7 @@ const Customers = () => {
                 </header>
 
                 {tab === 'settings' && <CustomersSettings/>}
-                {tab === 'excel' && <CustomersData/>}
+                {tab === 'excel' && <CustomersData add={add}/>}
                 {tab === 'empty' && <CustomersEmpty/>}
             </div>
             <footer className="d-flex flex-wrap justify-content-between align-items-center table-container__footer">
