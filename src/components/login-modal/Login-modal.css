@@ -61,3 +61,21 @@
 .connect-btn:disabled {
 
 }
+
+/*red button*/
+.red-btn {
+  background: linear-gradient(180deg, #BA1F4A -70.47%, #E01B52 166.29%);
+  box-shadow: 0 20px 30px rgba(255, 0, 71, 0.26);
+  border-radius: 8px;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 500;
+  padding: 18px 10%;
+}
+
+.red-btn:hover {
+  background: linear-gradient(180deg, #931035 -70.47%, #B91C48 123.21%);
+  box-shadow: 0 20px 30px rgba(255, 0, 71, 0.265106);
+  border-radius: 8px;
+  color: #fff;
+}

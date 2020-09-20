@@ -1,10 +1,10 @@
 .customers-details-container {
   padding: 40px 148px 23px 55px;
-
+}
+.customers-details-border {
   border-bottom: 1px solid #E9E9E9;
   margin-bottom: 5px
 }
-
 .customers-details {
   z-index: 10;
 }
@@ -75,7 +75,7 @@
   font-size: 14px;
   font-weight: 600;
   margin: 0 0 12px;
-  padding: 0 35px;
+  padding: 0 130px;
 }
 
 .customers-details__btn {
@@ -86,7 +86,27 @@
 .customers-details__image {
   transform: translate(10%, -39%);
 }
-
+.arrow-line {
+  top: 70px;
+  right: 0;
+  padding: 25px 66px 0 0;
+  transform: rotate(12deg);
+  height: 85%;
+}
+.arrow-line svg {
+  height: 85%;
+  width: auto;
+}
+.arrow-line::after {
+  content: '';
+  display: block;
+  width: 8px;
+  height: 8px;
+  background: #000;
+  border-radius:50%;
+  margin-top: 10px;
+  margin-right: 20px;
+}
 @media all and (max-width: 567px) {
   .customers-details-container {
     padding: 40px 20px 23px 20px;

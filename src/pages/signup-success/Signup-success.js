@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Button, Table} from 'react-bootstrap'
 import './Signup-success.css'
 import LoginModal from './../../components/login-modal';
@@ -10,10 +10,18 @@ import hubspotLogo from '../../assets/images/logo/hubspot-logo.svg'
 
 
 const SignupSuccess = () => {
+    const [show, setShow] = useState(false);
+    const [add, addCustomer] = useState(false);
+    const [disabled, setDisabled] = useState(false);
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+
     const success = {
         title: 'Congrats!',
         desc: 'Your account has  been created!'
     }
+
+    const connected = disabled ? `d-flex button-block d-flex align-items-center active selected` : `d-flex button-block d-flex align-items-center`;
     return (
         <div className="col-xl-11 mx-auto">
             <div className="row">
@@ -30,7 +38,7 @@ const SignupSuccess = () => {
                             to Mom n Pop Hub mobile app. </p>
                         <img className="button-block__logo flex-shrink-0" src={Logo} alt=""/>
                     </div>
-                    <div className="d-flex button-block d-flex align-items-center">
+                    <div className={connected}>
                         <div
                             className="circle-icon d-flex align-items-center justify-content-center rounded-circle flex-shrink-0">
                             <i className="icon-link"/>
@@ -39,8 +47,10 @@ const SignupSuccess = () => {
                             to Mom n Pop Hub mobile app. </p>
                     </div>
                     <div className="d-flex flex-column button-block">
-                        <LoginModal/>
-                        <Button variant="link" className="connect-btn text-decoration-none shadow-none d-flex align-items-center justify-content-center">
+                        <LoginModal show={show} disabled={disabled} handleClose={handleClose} handleShow={handleShow}
+                                    setDisabled={setDisabled}/>
+                        <Button variant="link"
+                                className="connect-btn text-decoration-none shadow-none d-flex align-items-center justify-content-center">
                             <i className="icon-connect-list"/> Create your own customer list
                         </Button>
                     </div>
@@ -50,7 +60,7 @@ const SignupSuccess = () => {
                         </Button>
                     </div>
                 </div>
-                <div className="col-xl-6 offset-xl-1 h-480 p-0 connect-block bg-white">
+                {disabled && <div className="col-xl-6 offset-xl-1 h-480 p-0 connect-block bg-white">
                     <div className="d-flex flex-column connect-block__content">
                         <header
                             className="d-flex justify-content-between justify-content-between secttion-container__header position-relative">
@@ -63,14 +73,28 @@ const SignupSuccess = () => {
                             </div>
                             <div className="d-flex">
                                 <Button type="button"
+                                        onClick={() => addCustomer(!add)}
                                         className="btn btn-icon border-0 bg-transparent shadow-none p-0 settings-icon active">
                                     <i className="icon-user-plus d-flex"/>
                                 </Button>
                             </div>
-                                <SearchBlock/>
+                            {add && <SearchBlock/>}
                         </header>
                         <div className="table-container flex-grow-1 border-0 p-0">
                             <Table responsive className='table-container customer-list-table border-0 m-0'>
+                                <thead>
+                                <tr>
+                                    <td className="align-middle border-0 font-weight-bold">#</td>
+                                    <td className="align-middle border-0 font-weight-bold">First name</td>
+                                    <td className="align-middle border-0 font-weight-bold">Last name</td>
+                                    <td className="align-middle border-0 font-weight-bold">Email</td>
+                                    <td className="align-middle border-0 font-weight-bold">Phone</td>
+
+                                    <td className="align-middle border-0 font-weight-bold">
+                                        Actions
+                                    </td>
+                                </tr>
+                                </thead>
                                 <tbody>
                                 <tr>
                                     <td className="align-middle border-0">1.</td>
@@ -99,7 +123,8 @@ const SignupSuccess = () => {
                             Complete
                         </Button>
                     </div>
-                </div>
+                </div>}
+
             </div>
         </div>
     )

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import ExistingDetails from './existing-details';
 import CreateDetails from './create-details';
 import DetailsEmpty from './details-empty/Details-empty';
@@ -9,13 +9,14 @@ import './Details.css';
 
 
 const Details = () => {
+    const [state, changeState] = useState('empty');
     return (
         <div className=" d-flex flex-column h-100">
             <div className="flex-grow-1  d-flex flex-column">
                 <BlockHeader title="Deals" buttonText="+ Create new deal"/>
-                {/*<CreateDetails />*/}
-                {/*<ExistingDetails/>*/}
-                <DetailsEmpty/>
+                {/*{state === 'details' && <CreateDetails/>}*/}
+                {state === 'list' && <ExistingDetails/>}
+                {state === 'empty' && <DetailsEmpty createDeal={() => changeState('list')}/>}
             </div>
             <footer className="d-flex flex-wrap justify-content-end align-items-center  table-container__footer">
                 <PaginationCustom/>

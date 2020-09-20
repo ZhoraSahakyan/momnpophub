@@ -1,8 +1,13 @@
 import React, {useState} from 'react';
-import {Table, DropdownButton, Button} from 'react-bootstrap';
+import {Table} from 'react-bootstrap';
+import MenuItem from '@material-ui/core/MenuItem';
+import FormControl from '@material-ui/core/FormControl';
+import Select from '@material-ui/core/Select';
 import PaginationCustom from './../../pagination'
 import  FormComponent from './../../form-component';
 import  BlockHeader from './../../block-header';
+
+import chartImage from '../../../assets/images/chart.png'
 
 import './Deal-details.css';
 
@@ -22,7 +27,10 @@ const DealDetails = () => {
     return (
         <div className="col-12">
             <div className="d-flex flex-wrap bg-white deal-details overflow-hidden w-100">
-                <div className="w-100">
+                <div className="w-100 main-header d-flex align-items-center">
+                    <a href="" className="back text-decoration-none">
+                        <i className="icon-angle-left"/>
+                        Deals</a>
                     <BlockHeader  title="Largest Summer Cyber Monday Sale" buttonText="Share deal" buttonIcon="icon-share-square"/>
                 </div>
                 <section className="col-md-6 p-0">
@@ -51,6 +59,26 @@ const DealDetails = () => {
                             <p className="total-block__title m-0">Views</p>
                             <h2 className="total-block__count m-0">5,043</h2>
                         </div>
+                    </div>
+                    <div className="d-flex align-items-center justify-content-between select-container">
+                    <div className="d-flex align-items-center">
+                        <p className="m-0 showing-label">Showing for: </p>
+                        <FormControl>
+                            <Select
+                                labelId="demo-customized-select-label"
+                                id="demo-customized-select"
+                                value={10}
+                            >
+                                <MenuItem value={10}> calendar  30 June - 5 August 2020 angle-down</MenuItem>
+                                <MenuItem value={20}>Twenty</MenuItem>
+                                <MenuItem value={30}>Thirty</MenuItem>
+                            </Select>
+                        </FormControl>
+                    </div>
+                        <p className="sales d-flex align-items-center m0">Sales</p>
+                    </div>
+                    <div className="chart-container">
+                        <img src={chartImage} className="w-100" alt=""/>
                     </div>
                 </section>
                 <section className="table-block col-md-6 p-0 d-flex flex-column">
