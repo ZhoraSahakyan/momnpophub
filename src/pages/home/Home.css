@@ -1,3 +1,6 @@
+@import "https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap";
+
+
 .questions-container {
   counter-reset: count;
   padding-top: 21px;
@@ -16,7 +19,7 @@
 }
 
 .question-item {
-  color: #1F1F1F
+  color: #1F1F1F;
 }
 
 .description {
@@ -28,13 +31,14 @@
 .question-item__title {
   font-size: 20px;
   line-height: 24px;
-  font-weight: 500;
   margin-bottom: 6px;
+  font-weight: 600;
 }
 
 .question-item__description {
   font-size: 16px;
   margin-bottom: 21px;
+  font-weight: 600;
 }
 
 @media all and (max-width: 767px) {
@@ -63,9 +67,6 @@
 }
 
 /*login form*/
-.logo-container {
-  background: url(./../../assets/images/dots_login.svg) no-repeat left -260%
-}
 
 .upload-image-container {
   width: 72px;
@@ -180,6 +181,7 @@
   color: #2C2C2C;
   margin-top: 15px;
   display: inline-block;
+  font-weight: 600;
 }
 
 .view-item__image {
@@ -257,7 +259,7 @@
 }
 
 .steps__item__title {
-  font-weight: 600;
+  font-weight: 700;
   font-size: 24px;
   line-height: 29px;
   margin-bottom: 10px;
@@ -266,6 +268,7 @@
 .steps__item__desc {
   font-size: 16px;
   line-height: 24px;
+  font-weight: 600;
 }
 
 .steps__item__desc span {
@@ -283,8 +286,6 @@
 }
 
 .contact-container {
-  background: url(../../assets/images/dots_contact.svg) no-repeat left center;
-  background-size: contain;
   padding: 100px 0 200px;
 }
 
@@ -292,7 +293,9 @@
   font-size: 16px;
   color: #1F1F1F;
   margin-top: 50px;
+  font-weight: 600;
 }
+
 @media all and (max-width: 1700px) {
   .how-it-work-container {
     padding: 40px 0 0;
@@ -323,8 +326,9 @@
   .steps {
     margin-top: 150px;
   }
+
   .how-it-work-container .general-title {
-    padding:70px 0 0;
+    padding: 70px 0 0;
   }
 
   .how-work-desc {
@@ -340,12 +344,14 @@
   .how-it-work__info {
     width: 600px;
   }
+
   .general-title {
     font-size: 25px;
     line-height: 1;
   }
+
   .how-it-work-container .general-title {
-    padding:70px 0 0;
+    padding: 70px 0 0;
   }
 
   .how-work-desc {
@@ -353,10 +359,12 @@
     font-size: 12px;
   }
 }
+
 @media all and (max-width: 767px) {
   .steps {
     margin-top: 100px;
   }
+
   .steps__item {
     grid-template-columns: 80px 1fr;
     grid-gap: 15px;
@@ -377,16 +385,17 @@
     font-size: 14px;
     line-height: 1;
   }
+
   .contact-container {
     padding: 50px 0 100px;
   }
 }
 
-
 @media all and (max-width: 700px) {
   .how-it-work__info {
     width: 100%;
   }
+
   .how-it-work-container .general-title {
     padding: 56px 0 0;
   }
@@ -395,6 +404,7 @@
     margin: 5px 0 0;
     font-size: 10px;
   }
+
   .how-it-work-container {
     margin-top: 0;
   }
@@ -404,6 +414,7 @@
   .steps {
     margin-top: 50px;
   }
+
   .how-it-work-container .general-title {
     padding: 40px 0 0;
   }

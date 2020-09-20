@@ -13,10 +13,10 @@ const Details = () => {
     return (
         <div className=" d-flex flex-column h-100">
             <div className="flex-grow-1  d-flex flex-column">
-                <BlockHeader title="Deals" buttonText="+ Create new deal"/>
-                {/*{state === 'details' && <CreateDetails/>}*/}
+                <BlockHeader title="Deals" buttonText="+ Create new deal" handler={() => changeState('details')}/>
+                {state === 'details' && <CreateDetails publish={changeState}/>}
                 {state === 'list' && <ExistingDetails/>}
-                {state === 'empty' && <DetailsEmpty createDeal={() => changeState('list')}/>}
+                {state === 'empty' && <DetailsEmpty createDeal={changeState}/>}
             </div>
             <footer className="d-flex flex-wrap justify-content-end align-items-center  table-container__footer">
                 <PaginationCustom/>

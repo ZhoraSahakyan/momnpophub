@@ -6,7 +6,7 @@ import CheckboxContainer from './../checkbox-container'
 import './Form-component.css';
 
 
-const FormComponent = ({edit, data, page}) => {
+const FormComponent = ({edit, data, page, publish}) => {
     let checkboxDisabled = !page ? 'd-none' : 'd-flex justify-content-between align-items-center',
         image = !data.servicePicture ? ( <i className="icon-image d-block"/>) : (
             <img src={imageProfile} className="w-100 h-100 file-upload-container__image" alt=""/>),
@@ -68,7 +68,9 @@ const FormComponent = ({edit, data, page}) => {
                     <CheckboxContainer labetText="Send Email notification to customers"/>
                     <CheckboxContainer labetText="Send SMS notification to customers"/>
                 </Form.Group>
-                <Button variant="link" className="text-decoration-none shadow-none green-btn" type="submit">
+                <Button variant="link" className="text-decoration-none shadow-none green-btn" type="submit"
+                    onClick={() => publish('list')}
+                >
                     Publish deal
                 </Button>
             </div>

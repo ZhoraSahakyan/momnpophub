@@ -5,12 +5,13 @@ import BusinessProfile from '../../components/business-profile';
 import Customers from '../../components/customers/Customers'
 import './Business-home.css';
 
-const BusinessHome = () => {
+const BusinessHome = ({ location }) => {
+    console.log(location);
     return (
             <div className=" col-xl-11 mx-auto">
                 <div className="row">
                     <div className="col-xl-6  mb-4">
-                    <Customers />
+                    <Customers query={location.search}/>
                     </div>
                     <div className="col-xl-6 mb-4">
                     <div className="bg-white secttion-container w-100 h-100 d-flex flex-column justify-content-between">

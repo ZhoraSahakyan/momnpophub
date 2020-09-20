@@ -37,7 +37,7 @@ const DetailsEmpty = ( { createDeal } ) => {
             </div>
             <div className="d-flex justify-content-center">
                 <Button variant="link" className="text-decoration-none shadow-none green-btn empty-details__btn w-auto"
-                        onClick={() => createDeal()}
+                        onClick={() => createDeal(('details'))}
                         type="submit">
                     Create your first deal
                 </Button>

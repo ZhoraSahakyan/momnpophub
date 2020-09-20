@@ -4,7 +4,7 @@ import {Dropdown,Button} from 'react-bootstrap';
 import './Mass-invitation.css';
 
 
-const MassInvitation = () => {
+const MassInvitation = ({ showInvitation }) => {
     return (
     <Dropdown className="dropdown-container">
         <Dropdown.Toggle id="dropdown-basic" className="mass-invitation bg-transparent border-0 p-0 rounded-0 shadow-none d-flex align-items-center">
@@ -14,6 +14,7 @@ const MassInvitation = () => {
 
         <Dropdown.Menu>
             <Button type="button"
+                    onClick={() => showInvitation()}
                     className="btn bg-transparent border-left-0 border-right-0 border-top-0 shadow-none d-block w-100 rounded-0">
                 Invite via Email
             </Button>

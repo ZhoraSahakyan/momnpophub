@@ -21,7 +21,7 @@ function App() {
                     <Route path="/home" component={Home}/>
                     <Route path="/signup-success" component={SignupSuccess}/>
                     <Route path="/deal-details" component={DealDetails}/>
-                    <Redirect to="/signup-success"/>
+                    <Redirect to="/home"/>
                 </Switch>
             </Router>
 

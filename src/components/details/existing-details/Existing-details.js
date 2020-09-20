@@ -5,7 +5,7 @@ import './Existing-details.css';
 import {Link} from "react-router-dom";
 
 
-const ExistingDetails = ({navigate}) => {
+const ExistingDetails = () => {
     return (
         <div className="table-container flex-grow-1">
             <Table responsive className='details-table border-0 m-0'>

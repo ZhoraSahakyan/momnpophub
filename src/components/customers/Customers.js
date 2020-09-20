@@ -9,10 +9,12 @@ import CustomersEmpty from './customers-empty';
 
 import './Customers.css';
 import SearchBlock from "../search-block";
+import AlertBlock from "../alert-block/Alert-block";
 
-const Customers = () => {
-    const [tab, changeTab] = useState('empty');
+const Customers = ({ query }) => {
+    const [tab, changeTab] = useState(query.includes('skip') ? 'empty' : 'excel');
     const [add, addCustomers] = useState(false);
+    const [isInvited, showInvitationMessage] = useState(false);
 
     return (
         <div className="bg-white secttion-container w-100 h-100 d-flex flex-column justify-content-between">
@@ -23,7 +25,7 @@ const Customers = () => {
                     <div className="d-flex">
                         <Button type="button"
                                 onClick={() => changeTab('settings')}
-                                className="btn btn-icon border-0 bg-transparent shadow-none p-0 settings-icon active">
+                                className="btn btn-icon border-0 bg-transparent shadow-none p-0 settings-icon">
                             <i className="icon-deals d-flex"/>
                         </Button>
                         <Button type="button"
@@ -45,11 +47,11 @@ const Customers = () => {
                 </header>
 
                 {tab === 'settings' && <CustomersSettings/>}
-                {tab === 'excel' && <CustomersData add={add}/>}
+                {tab === 'excel' && <CustomersData add={add} isInvited={isInvited} showInvitation={showInvitationMessage}/>}
                 {tab === 'empty' && <CustomersEmpty/>}
             </div>
             <footer className="d-flex flex-wrap justify-content-between align-items-center table-container__footer">
-                <MassInvitation/>
+                <MassInvitation showInvitation={() => showInvitationMessage(true)}/>
                 <PaginationCustom/>
             </footer>
         </div>

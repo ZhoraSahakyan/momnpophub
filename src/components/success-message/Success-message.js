@@ -5,7 +5,6 @@ import Logo from '../../assets/images/logo/momnpophub-logo.svg';
 import './Success-message.css';
 
 const SuccessMessage = ({success}) => {
-    console.log(success)
     return (
         <>
         <figure className="flex-shrink-0 alert-block__img mb-0">

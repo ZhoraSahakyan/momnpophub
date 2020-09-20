@@ -7,12 +7,15 @@ import SearchBlock from '../../components/search-block';
 
 import Logo from '../../assets/images/logo/momnpophub-logo.svg'
 import hubspotLogo from '../../assets/images/logo/hubspot-logo.svg'
+import {Link} from "react-router-dom";
+import CustomersData from "../../components/customers/customers-data/Customers-data";
 
 
 const SignupSuccess = () => {
     const [show, setShow] = useState(false);
     const [add, addCustomer] = useState(false);
     const [isShow, showCustomers] = useState(false);
+    const [isSync, sync] = useState(false);
     const [connected, connect] = useState(false);
     const [disabled, setDisabled] = useState(false);
     const handleClose = () => setShow(false);
@@ -50,17 +53,27 @@ const SignupSuccess = () => {
                     </div>
                     <div className="d-flex flex-column button-block">
                         <LoginModal show={show} disabled={disabled} handleClose={handleClose} handleShow={handleShow}
-                                    setDisabled={() => {setDisabled(true); connect(true); showCustomers(true)}}/>
+                                    setDisabled={() => {
+                                        setDisabled(true);
+                                        connect(true);
+                                        showCustomers(true)
+                                    }}/>
                         <Button variant="link"
-                                onClick={() => showCustomers(true)}
+                                onClick={() => {
+                                    showCustomers(true);
+                                    sync(true);
+                                    addCustomer(true)
+                                }}
                                 className="connect-btn text-decoration-none shadow-none d-flex align-items-center justify-content-center">
                             <i className="icon-connect-list"/> Create your own customer list
                         </Button>
                     </div>
                     <div className="text-center">
-                        <Button variant="link" className='skip text-decoration-none'>
-                            Skip for now
-                        </Button>
+                        <Link to='/business-home?skip'>
+                            <Button variant="link" className='skip text-decoration-none'>
+                                Skip for now
+                            </Button>
+                        </Link>
                     </div>
                 </div>
                 {isShow && <div className="col-xl-6 offset-xl-1 h-480 p-0 connect-block bg-white">
@@ -75,16 +88,37 @@ const SignupSuccess = () => {
 
                             </div>
                             <div className="d-flex">
-                                <Button type="button"
-                                        onClick={() => addCustomer(!add)}
-                                        className="btn btn-icon border-0 bg-transparent shadow-none p-0 settings-icon active">
+                                {showCustomers && !isSync && <Button type="button"
+                                                                     onClick={() => addCustomer(!add)}
+                                                                     className="btn btn-icon border-0 bg-transparent shadow-none p-0 settings-icon active">
                                     <i className="icon-user-plus d-flex"/>
-                                </Button>
+                                </Button>}
+
+                                {isSync && (<React.Fragment>
+                                    <Button type="button"
+                                            className="btn btn-icon border-0 bg-transparent shadow-none p-0">
+                                        <i className="icon-deals d-flex"/>
+                                    </Button>
+                                    <Button type="button"
+                                            className="btn btn-icon border-0 bg-transparent shadow-none p-0 d-flex align-items-center">
+                                        <i className="dropdown"/>
+                                        <i className="icon-excel-icon"/>
+                                    </Button>
+                                    <Button type="button"
+                                            className="btn btn-icon border-0 bg-transparent shadow-none p-0">
+                                        <i className="icon-add-user"/>
+                                    </Button>
+                                    <Button type="button"
+                                            className="btn btn-icon border-0 bg-transparent shadow-none p-0">
+                                        <i className="icon-deals-resize"/>
+                                    </Button>
+                                </React.Fragment>)
+                                }
                             </div>
                             {add && <SearchBlock/>}
                         </header>
                         <div className="table-container flex-grow-1 border-0 p-0">
-                            <Table responsive className='table-container customer-list-table border-0 m-0'>
+                            {!isSync && <Table responsive className='table-container customer-list-table border-0 m-0'>
                                 <thead>
                                 <tr>
                                     <td className="align-middle border-0 font-weight-bold">#</td>
@@ -107,10 +141,12 @@ const SignupSuccess = () => {
                                     <td className="align-middle border-0">+1 800 1234 567</td>
 
                                     <td className="align-middle border-0">
-                                        <button type="button"
-                                                className="btn table-icon-btn  border-left-0 border-right-0 border-bottom-0 bg-transparent shadow-none p-0">
-                                            <i className="icon-pen"/>
-                                        </button>
+                                        <Link to="/deal-details">
+                                            <button type="button"
+                                                    className="btn table-icon-btn  border-left-0 border-right-0 border-bottom-0 bg-transparent shadow-none p-0">
+                                                <i className="icon-pen"/>
+                                            </button>
+                                        </Link>
                                         <button type="button"
                                                 className="btn table-icon-btn  border-left-0 border-right-0 border-bottom-0 bg-transparent shadow-none p-0">
                                             <i className="icon-trash table-icon-delete "/>
@@ -118,14 +154,27 @@ const SignupSuccess = () => {
                                     </td>
                                 </tr>
                                 </tbody>
-                            </Table>
+                            </Table>}
+
+                            {isSync && <CustomersData/>}
                         </div>
                     </div>
-                    <div className="d-flex justify-content-end connect-block__footer">
-                        <Button variant="link" className="text-decoration-none shadow-none green-btn" type="submit">
-                            Complete
+                    {!isSync && <div className="d-flex justify-content-end connect-block__footer">
+                        <Button variant="link" className="text-decoration-none shadow-none green-btn" type="button"
+                                onClick={() => {
+                                    sync(true);
+                                    addCustomer(false)
+                                }}>
+                            Sync to import customers from Hubspot
                         </Button>
-                    </div>
+                    </div>}
+                    {isSync && <div className="d-flex justify-content-end connect-block__footer">
+                        <Link to="/business-home?dashboard">
+                            <Button variant="link" className="text-decoration-none shadow-none green-btn" type="button">
+                                Go to Dashboard
+                            </Button>
+                        </Link>
+                    </div>}
                 </div>}
 
             </div>

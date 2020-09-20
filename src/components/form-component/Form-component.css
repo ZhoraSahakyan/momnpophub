@@ -81,7 +81,7 @@
   color: #FFFFFF;
   font-size: 15px;
   font-weight: 700;
-  width: 180px;
+  min-width: 180px;
 }
 
 .green-btn:hover {

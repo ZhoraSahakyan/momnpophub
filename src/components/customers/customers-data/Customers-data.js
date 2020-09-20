@@ -1,17 +1,18 @@
 import React from 'react';
-import {Table, DropdownButton, Button} from 'react-bootstrap';
+import {Button, DropdownButton, Table} from 'react-bootstrap';
 
 import './Customers-data.css';
 import SearchBlock from "../../search-block";
+import AlertBlock from "../../alert-block/Alert-block";
 
-const CustomersData = ({add}) => {
+const CustomersData = ({add, isInvited, showInvitation}) => {
     return (
         <React.Fragment>
             <header
                 className="d-flex justify-content-between justify-content-between secttion-container__header position-relative p-0">
                 {add && <SearchBlock/>}
             </header>
-            <div className="table-container flex-grow-1">
+            <div className="table-container flex-grow-1 position-relative">
                 <Table responsive className='business-table border-0 m-0'>
                     <thead>
                     </thead>
@@ -34,13 +35,14 @@ const CustomersData = ({add}) => {
                             </a></td>
                         <td className="align-middle text-center  table-email">sample@sample.com</td>
                         <td className="align-middle  text-center text-black">+1 800 1234 567</td>
-                        <td className="align-middle text-center dropdown-container">
+                        <td className="align-middle text-center dropdown-container position-relative">
                             <DropdownButton id="dropdown-basic-button"
                                             className="btn  border-0 bg-transparent shadow-none p-0 table-icon-btn"
                                             title={
                                                 <i className="icon-add-user"/>
                                             }>
                                 <Button type="button"
+                                        onClick={() => showInvitation(true)}
                                         className="btn bg-transparent border-left-0 border-right-0 border-top-0 shadow-none d-block w-100 rounded-0">
                                     Invite via Email
                                 </Button>
@@ -106,13 +108,14 @@ const CustomersData = ({add}) => {
                             </a></td>
                         <td className="align-middle text-center  table-email">sample@sample.com</td>
                         <td className="align-middle  text-center text-black">+1 800 1234 567</td>
-                        <td className="align-middle text-center dropdown-container">
+                        <td className="align-middle text-center dropdown-container position-relative">
                             <DropdownButton id="dropdown-basic-button"
                                             className="btn  border-0 bg-transparent shadow-none p-0 table-icon-btn"
                                             title={
                                                 <i className="icon-add-user"/>
                                             }>
                                 <Button type="button"
+                                        onClick={() => showInvitation(true)}
                                         className="btn bg-transparent border-left-0 border-right-0 border-top-0 shadow-none d-block w-100 rounded-0">
                                     Invite via Email
                                 </Button>
@@ -131,6 +134,7 @@ const CustomersData = ({add}) => {
                     </tr>
                     </tbody>
                 </Table>
+                {isInvited && <AlertBlock onClose={() => showInvitation(false)}/>}
             </div>
         </React.Fragment>
     )
