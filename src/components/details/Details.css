@@ -10,7 +10,6 @@
 }
 .details-table tr th {
   color: #717171;
-  background: linear-gradient(180deg, #F8F7F7 0%, rgba(226, 226, 226, 0) 100%);
 }
 
 .details-table tr td:first-of-type {

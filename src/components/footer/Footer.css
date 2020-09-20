@@ -2,7 +2,11 @@
 .social-icon {
   margin-top: 80px;
 }
-
+@media all and (max-width: 567px) {
+  .social-icon {
+    margin-top: 20px;
+  }
+}
 .social-icon__link {
   width: 20px;
   height: 20px;
@@ -80,7 +84,12 @@
   font-size: 16px;
   color: #1F1F1F
 }
-
+@media all and (max-width: 1250px) {
+  .footer-menu__item__link,
+  .footer-menu__item__link:hover {
+    font-size: 14px;
+  }
+}
 .footer-menu__item__link span {
   font-weight: 700;
 }
@@ -102,4 +111,10 @@
   background: linear-gradient(0deg, #FFFFFF -4886.72%, #FFB648 10353.91%);
   position: absolute;
   top: 0;
+}
+
+@media all and (max-width: 1250px) {
+  .footer-menu{
+    justify-content: center !important;
+  }
 }

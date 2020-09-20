@@ -4,19 +4,29 @@ import {Button} from 'react-bootstrap';
 import './Block-header.css';
 
 
-const BlockHeader = ({title, buttonText, buttonIcon}) => {
-   let icon= buttonIcon ?  `${buttonIcon} orange-btn edit-btn`: null;
+const BlockHeader = ({title, buttonText, buttonIcon, edit}) => {
+    let icon = buttonIcon ? `${buttonIcon} orange-btn edit-btn` : null;
+    let editButton = edit ? (
+        <>
+    <Button type="button" className="btn border-0 bg-transparent shadow-none p-0 d-flex align-items-center mr-3">
+        <i className="icon-times-circle light-gray d-flex"/>
+        <span className="light-gray"> Cancel</span>
+    </Button>
+        <Button type="button" className="btn border-0 bg-transparent shadow-none p-0">
+        <i className={icon}/>
+        <span className="orange-btn">{'Save changes'}</span>
+    </Button></>):(     <Button type="button" className="btn border-0 bg-transparent shadow-none p-0">
+        <i className={icon}/>
+        <span className="orange-btn">{buttonText}</span>
+    </Button>)
 
     return (
         <header
-            className="d-flex justify-content-between justify-content-center secttion-container__header">
-            <h2 className="title m-0">{title}</h2>
-            {buttonIcon && buttonText && <div className="d-flex">
-                <Button type="button" className="btn border-0 bg-transparent shadow-none p-0">
-                    <i className={icon}/>
-                    <span className="orange-btn">{buttonText}</span>
-                </Button>
-            </div>}
+            className="d-flex flex-wrap justify-content-between align-items-center secttion-container__header">
+            <h2 className="title m-0  d-flex align-items-center">{title}</h2>
+            <div className="d-flex">
+                {editButton}
+            </div>
         </header>
     )
 };

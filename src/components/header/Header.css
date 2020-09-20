@@ -1,3 +1,8 @@
+.logout-header {
+	background: url(./../../assets/images/header-bg.svg) no-repeat;
+	padding-bottom: 150px;
+	background-size: cover;
+}
 .header-menu .mr-auto.navbar-nav {
 	flex-grow: 1;
 	justify-content: center;
@@ -24,6 +29,16 @@
 	}
 }
 
+@media all and (max-width: 567px) {
+	.logout-header {
+		padding: 0;
+		margin-bottom: 20px;
+		background-size: unset;
+	}
+	.navbar-brand img {
+		height: 50px;
+	}
+}
 .header-menu.navbar .header-menu__item.nav-link,
 .navbar-light .nav-link.dropdown-toggle,
 .navbar-light .nav-link.dropdown-toggle:hover .user {
@@ -69,7 +84,12 @@
 .header-menu.navbar .header-menu__item.nav-link.active {
 	font-weight: 700;
 }
-
+@media all and (max-width: 1250px) {
+	.header-menu.navbar .header-menu__item.nav-link > span,
+	.header-menu.navbar .header-menu__item.nav-link.active {
+		font-size: 14px;
+	}
+}
 .header-menu.navbar .header-menu__item.nav-link::before {
 	content: '';
 	display: block;

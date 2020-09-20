@@ -22,3 +22,13 @@ button.mass-invitation:active i,
 .dropdown-container .dropdown-toggle::after{
   display: none;
 }
+
+@media all and (max-width: 567px) {
+  button.mass-invitation {
+    font-size: 12px;
+  }
+  .mass-invitation i {
+    font-size: 16px;
+    margin-right: 14px;
+  }
+}

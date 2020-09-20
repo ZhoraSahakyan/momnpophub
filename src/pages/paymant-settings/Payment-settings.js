@@ -15,7 +15,7 @@ const PaymentSettings = () => {
                         <div className="flex-grow-1  d-flex flex-column">
                             <header
                                 className="d-flex justify-content-between justify-content-center section-container__header">
-                                <h2 className="title m-0">Payment Settings</h2>
+                                <h2 className="title m-0  d-flex align-items-center">Payment Settings</h2>
                             </header>
                         </div>
 
@@ -23,7 +23,7 @@ const PaymentSettings = () => {
                             <div className="col-12 col-xl-6 p-0 block sub-container">
                                 <div
                                     className="d-flex justify-content-between justify-content-center section-container__header sub-container__header">
-                                    <h2 className="sub-container__title m-0">Payment Options</h2>
+                                    <h2 className="sub-container__title m-0  d-flex align-items-center">Payment Options</h2>
                                     <div className="d-flex">
                                         <Button type="button"
                                                 className="btn border-0 bg-transparent shadow-none p-0">
@@ -76,7 +76,7 @@ const PaymentSettings = () => {
                             <div className="col-12 col-xl-6 p-0 sub-container">
                                 <div
                                     className="d-flex justify-content-between justify-content-center section-container__header sub-container__header">
-                                    <h2 className="sub-container__title m-0">Get Paid</h2>
+                                    <h2 className="sub-container__title m-0  d-flex align-items-center">Get Paid</h2>
                                 </div>
                             </div>
                         </div>
