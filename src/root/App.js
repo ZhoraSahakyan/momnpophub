@@ -7,11 +7,12 @@ import Home from "../pages/home/Home";
 import SignupSuccess from "../pages/signup-success";
 import Header from "../components/header/Header";
 import Footer from "../components/footer/Footer";
+import DealDetails from "../pages/deal-details/Deal-details";
 
 function App() {
     return (
         // add main-container container class for business pages
-    <main className="min-vh-100">
+        <main className="min-vh-100">
             <Header/>
 
             <Router>
@@ -19,6 +20,7 @@ function App() {
                     <Route path="/business-home" component={BusinessHome}/>
                     <Route path="/home" component={Home}/>
                     <Route path="/signup-success" component={SignupSuccess}/>
+                    <Route path="/deal-details" component={DealDetails}/>
                     <Redirect to="/signup-success"/>
                 </Switch>
             </Router>

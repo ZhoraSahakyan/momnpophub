@@ -44,9 +44,9 @@ const CustomersEmpty = () => {
                         </Button>
                     </div>
                 </div>
-                <firgure className="d-flex justify-content-center customers-details__image">
+                <figure className="d-flex justify-content-center customers-details__image">
                     <img src={customersImage} className="w-50" alt=""/>
-                </firgure>
+                </figure>
             </div>
      {/*<AlertBlock/>*/}
         </div>

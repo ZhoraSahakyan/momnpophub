@@ -39,18 +39,18 @@ const Header = () => {
     };
 
     const listItems = ['Action', 'Another action', 'Something', 'Separated link'].map((actionName, index) =>
-        <React.Fragment>
+        <React.Fragment key={index + actionName}>
             <Divider/>
-            <ListItem button className={classes.nested} key={index + actionName}>
+            <ListItem button className={classes.nested}>
                 {actionName}
             </ListItem>
         </React.Fragment>
     );
 
     const navigationLinks = ['About Us', 'Add Your Business & Deals For FREE', 'Customer & Business App'].map((link, index) =>
-        <React.Fragment>
+        <React.Fragment key={index + link}>
             <Divider/>
-            <ListItem button className="justify-content-center" key={index + link}>
+            <ListItem button className="justify-content-center">
                 {link}
             </ListItem>
         </React.Fragment>

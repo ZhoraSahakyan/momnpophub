@@ -3,11 +3,11 @@ import {Table} from 'react-bootstrap';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
-import PaginationCustom from './../../pagination'
-import  FormComponent from './../../form-component';
-import  BlockHeader from './../../block-header';
+import PaginationCustom from '../../components/pagination/index'
+import  FormComponent from '../../components/form-component/index';
+import  BlockHeader from '../../components/block-header/index';
 
-import chartImage from '../../../assets/images/chart.png'
+import chartImage from '../../assets/images/chart.png'
 
 import './Deal-details.css';
 

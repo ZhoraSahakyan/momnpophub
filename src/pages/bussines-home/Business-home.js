@@ -3,7 +3,6 @@ import Details from '../../components/details';
 import BankInformation from '../../components/bank-information';
 import BusinessProfile from '../../components/business-profile';
 import Customers from '../../components/customers/Customers'
-import DealDetails from './../../components/details/deal-details'
 import './Business-home.css';
 
 const BusinessHome = () => {
@@ -28,8 +27,6 @@ const BusinessHome = () => {
                     <BusinessProfile/>
                     </div>
                     </div>
-
-                    {/*<DealDetails/>*/}
                 </div>
             </div>
     )
