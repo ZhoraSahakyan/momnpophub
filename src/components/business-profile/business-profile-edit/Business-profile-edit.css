@@ -7,6 +7,38 @@
     min-width: 180px;
 }
 
+.close-btn {
+    margin-top: -8px;
+    background: #E0E0E0;
+    border-radius: 100%;
+    color: #FFFFFF;
+    font-size: 8px;
+    width: 20px;
+    height: 20px;
+}
+
+.close-btn:hover {
+    color: #FFFFFF;
+}
+
 .grey-btn:hover {
     color: #A1A1A1;
+}
+
+.input-with-icon {
+    position: relative;
+}
+
+.input-with-icon i {
+    position: absolute;
+    left: 6px;
+    top: 6px;
+}
+
+.input-with-icon .input {
+    padding-left: 30px;
+}
+
+.website{
+    text-decoration: underline;
 }

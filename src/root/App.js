@@ -13,9 +13,8 @@ function App() {
     return (
         // add main-container container class for business pages
         <main className="min-vh-100">
-            <Header/>
-
             <Router>
+                <Header/>
                 <Switch>
                     <Route path="/business-home" component={BusinessHome}/>
                     <Route path="/home" component={Home}/>
@@ -23,9 +22,8 @@ function App() {
                     <Route path="/deal-details" component={DealDetails}/>
                     <Redirect to="/home"/>
                 </Switch>
+                <Footer/>
             </Router>
-
-            <Footer/>
         </main>
     );
 }

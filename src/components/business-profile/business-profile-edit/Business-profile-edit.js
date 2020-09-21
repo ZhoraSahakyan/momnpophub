@@ -3,6 +3,7 @@ import DefaultImage from "../../../assets/images/default.png";
 import {Button, Form} from "react-bootstrap";
 
 import './Business-profile-edit.css';
+import imageProfile from "../../../assets/images/profil_image.png";
 
 const BusinessProfileEdit = () => {
     const [edit, setEdit] = useState(true);
@@ -11,12 +12,12 @@ const BusinessProfileEdit = () => {
         surname: 'Flowers',
         email: 'joe@flowers.com',
         desc: 'Joe Flowers is leading online and offline store that offers various species of flowers',
-        discountedPrice: '$300.00',
-        dealStartDate: '06/13/2020',
-        dealEndDate: '06/13/2020',
+        address: '7820 Poplar Ave, Germantown, TN 38138, USA',
+        phone: '3096843154',
+        owner: 'Tarun',
         dealPublishDate: '06/13/2020',
         dealDescription: 'Cheaper Than Black Friday iMac + Free 2 Day Shipping'
-    }
+    };
     return (
         <div className="business-profile-page col-12">
             <div className="d-flex flex-wrap flex-column justify-content-between align-items-start mb-2">
@@ -50,7 +51,8 @@ const BusinessProfileEdit = () => {
                             </div>
 
                             <div className="col-12 d-flex align-items-center p-0">
-                                <Form.Group controlId="formBasicEmail" className='w-100'>
+                                <Form.Group controlId="formBasicEmail" className='w-100 input-with-icon'>
+                                    <i className="icon-address-card business-profile-icon"/>
                                     <Form.Control type="text" className="input shadow-none"
                                                   placeholder="Deal Name"
                                                   value={data.desc} disabled={(edit) ? '' : 'disabled'}
@@ -62,58 +64,67 @@ const BusinessProfileEdit = () => {
                             <div className="col-sm-12 d-flex flex-row align-items-center justify-content-center p-0">
                                 <div className="row w-100">
                                     <div className="col-sm-6 d-flex justify-content-between p-0">
-                                        <Form.Group controlId="formBasicEmail">
+                                        <Form.Group controlId="formBasicEmail" className="input-with-icon">
+                                            <i className="icon-phone business-profile-icon"/>
                                             <Form.Control type="text" className="input shadow-none"
                                                           placeholder="Deal Name"
-                                                          value={data.name} disabled={(edit) ? '' : 'disabled'}
+                                                          value={data.phone} disabled={(edit) ? '' : 'disabled'}
                                             />
                                         </Form.Group>
 
-                                        <Form.Group controlId="formBasicEmail" className="ml-1">
+                                        <Form.Group controlId="formBasicEmail" className="ml-1 input-with-icon">
+                                            <i className="icon-user business-profile-icon"/>
                                             <Form.Control type="text" className="input shadow-none"
                                                           placeholder="Deal Name"
-                                                          value={data.surname} disabled={(edit) ? '' : 'disabled'}
+                                                          value={data.owner} disabled={(edit) ? '' : 'disabled'}
                                             />
                                         </Form.Group>
                                     </div>
 
                                     <div className="col-sm-6 p-0 pl-1">
-                                        <Form.Group controlId="formBasicEmail">
-                                            <u className="orange-btn">
-                                                <Form.Control type="text"
-                                                              className="input shadow-none mx-0 px-1 orange-btn"
-                                                              placeholder="Deal Name"
-                                                              value={data.email} disabled={(edit) ? '' : 'disabled'}
-                                                />
-                                            </u>
+                                        <Form.Group controlId="formBasicEmail" className="input-with-icon">
+                                            <i className="icon-globe  business-profile-icon"/>
+                                            <Form.Control type="text"
+                                                          className="input shadow-none orange-btn website"
+                                                          placeholder="Deal Name"
+                                                          value="business.momnpophub.com" disabled={(edit) ? '' : 'disabled'}
+                                            />
                                         </Form.Group>
                                     </div>
                                 </div>
                             </div>
 
                             <div className="col-12 d-flex align-items-center p-0">
-                                <Form.Group controlId="formBasicEmail" className='w-100'>
+                                <Form.Group controlId="formBasicEmail" className='w-100 input-with-icon'>
+                                    <i className="icon-map-marker-alt business-profile-icon"/>
                                     <Form.Control type="text" className="input shadow-none"
-                                                  placeholder="Deal Name"
-                                                  value={data.desc} disabled={(edit) ? '' : 'disabled'}
+                                                  placeholder="Deal Address"
+                                                  value={data.address} disabled={(edit) ? '' : 'disabled'}
                                     />
                                 </Form.Group>
                             </div>
 
-                            <div className="col-12 d-flex align-items-center p-0">
-                                <Form.Group controlId="formBasicEmail" className='w-100'>
+                            <div className="col-12 d-flex align-items-center justify-content-between m-0 p-0">
+                                <Form.Group controlId="formBasicEmail" className='w-100 input-with-icon'>
+                                    <i className="icon-map-marker-alt business-profile-icon"/>
                                     <Form.Control type="text" className="input shadow-none"
-                                                  placeholder="Deal Name"
-                                                  value={data.desc} disabled={(edit) ? '' : 'disabled'}
+                                                  placeholder="Deal Address"
+                                                  value={data.address} disabled={(edit) ? '' : 'disabled'}
                                     />
                                 </Form.Group>
+
+                                <Button variant="link" className="text-decoration-none shadow-none ml-4 close-btn p-0"
+                                        type="submit">
+                                    <i className="icon-close"/>
+                                </Button>
                             </div>
 
                             <div className="col-12 d-flex align-items-center justify-content-between p-0">
-                                <Form.Group controlId="formBasicEmail" className='w-75 m-0'>
+                                <Form.Group controlId="formBasicEmail" className='w-75 m-0 input-with-icon'>
+                                    <i className="icon-map-marker-alt business-profile-icon"/>
                                     <Form.Control type="text" className="input shadow-none"
-                                                  placeholder="Deal Name"
-                                                  value={data.desc} disabled={(edit) ? '' : 'disabled'}
+                                                  placeholder="Deal Address"
+                                                  value={data.address} disabled={(edit) ? '' : 'disabled'}
                                     />
                                 </Form.Group>
 

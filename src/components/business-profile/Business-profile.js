@@ -6,7 +6,7 @@ import BusinessProfileEdit from "./business-profile-edit/Business-profile-edit";
 
 
 const BusinessProfile = () => {
-	const [isEdit, edit] = useState(true);
+	const [isEdit, edit] = useState(false);
 
 	return (
 		<div>

@@ -102,7 +102,7 @@ const CompletedSteper = ({ verify }) => {
             <div className="position-absolute stepper-bullets d-flex flex-row flex-sm-column justify-content-between">
                 <div className="stepper-bullets__text">Step {activeStep} of {maxSteps}</div>
                 <MobileStepper
-                    className='justify-content-start p-0'
+                    className='justify-content-start p-0 bg-white'
                     steps={maxSteps}
                     position="static"
                     variant={null}
