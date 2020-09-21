@@ -52,9 +52,9 @@
 	margin-left: 40px;
 	transition: all .3s;
 }
-.logout-header__item,
-.logout-header__item:hover{
+.logout-header__item, .logout-header__item:hover {
 	font-weight: 700;
+	margin: 0;
 }
 .navbar-light .nav-link.dropdown-toggle {
 	padding: 0;

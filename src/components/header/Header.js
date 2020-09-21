@@ -52,9 +52,11 @@ const Header = ({isLoggedIn, logout}) => {
     const list = () => (
         <div role="presentation">
             {!isLoggedIn && <List className="logout-header__ite    gin-toggle text-decoration-none">
-                <i className="icon-user-active mr-2"/>
-                Business Login
+                <ListItem button className="justify-content-center">
+                    <i className="icon-user-active mr-2"/>
+                    Business Login
 
+                </ListItem>
                 {navigationLinks}
             </List>
             }
