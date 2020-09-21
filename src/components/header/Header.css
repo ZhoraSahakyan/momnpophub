@@ -27,6 +27,9 @@
 	#basic-navbar-nav, .header-dropdown {
 		display: none;
 	}
+	.logout-header__item.login-toggle {
+		color: #000
+	}
 }
 
 @media all and (max-width: 567px) {
@@ -41,13 +44,18 @@
 }
 .header-menu.navbar .header-menu__item.nav-link,
 .navbar-light .nav-link.dropdown-toggle,
-.navbar-light .nav-link.dropdown-toggle:hover .user {
+.navbar-light .nav-link.dropdown-toggle:hover .user,
+.logout-header__item,
+.logout-header__item:hover{
 	color: #ffffff;
 	font: 16px 'Montserrat', sans-serif;
 	margin-left: 40px;
 	transition: all .3s;
 }
-
+.logout-header__item,
+.logout-header__item:hover{
+	font-weight: 700;
+}
 .navbar-light .nav-link.dropdown-toggle {
 	padding: 0;
 }

@@ -99,8 +99,6 @@ code {
   /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
 }
 
-
-
 .icon-linkedin:before { content: '\e800'; } /* '' */
 .icon-map-marker-alt:before { content: '\e801'; } /* '' */
 .icon-path:before { content: '\e802'; } /* '' */
@@ -139,3 +137,6 @@ code {
 .icon-download:before { content: '\e826'; } /* '' */
 .icon-eye:before { content: '\e827'; } /* '' */
 .icon-times-circle:before { content: '\e828'; } /* '' */
+.icon-repeat:before { content: '\e829'; } /* '' */
+.icon-case:before { content: '\e82a'; } /* '' */
+.icon-user-active:before { content: '\e82b'; } /* '' */

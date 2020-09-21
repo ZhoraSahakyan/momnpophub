@@ -16,7 +16,7 @@ import CheckboxContainer from './../../components/checkbox-container';
 
 import './Home.css';
 
-const Home = () => {
+const Home = ( { login } ) => {
     const [check, onCheck] = useState(false);
 
     return (
@@ -99,7 +99,7 @@ const Home = () => {
                                                   placeholder="Confirm Password *"/>
                                 </Form.Group>
                                 <Link to="/signup-success">
-                                    <Button variant="btn" className="red-btn" type="button">
+                                    <Button variant="btn" className="red-btn" type="button" onClick={() => login(true)}>
                                         Signup for FREE
                                     </Button>
                                 </Link>

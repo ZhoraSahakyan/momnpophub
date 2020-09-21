@@ -1,5 +1,5 @@
 import React from 'react';
-import {Navbar, NavDropdown} from 'react-bootstrap';
+import {Nav, Navbar, NavDropdown} from 'react-bootstrap';
 
 import './Header.css';
 import Logo from '../../assets/images/logo/momnpophub-logo.svg';
@@ -22,7 +22,7 @@ const useStyles = makeStyles({
     },
 });
 
-const Header = () => {
+const Header = ({isLoggedIn, logout}) => {
     const classes = useStyles();
     const [state, setState] = React.useState({right: false});
     const [open, setOpen] = React.useState(false);
@@ -39,9 +39,26 @@ const Header = () => {
         setState({...state, [anchor]: open});
     };
 
+    const navigationLinks = ['About Us', 'Add Your Business & Deals For FREE', 'Customer & Business App'].map((link, index) =>
+        <React.Fragment key={index + link}>
+            <Divider/>
+            <ListItem button className="justify-content-center">
+                {link}
+            </ListItem>
+        </React.Fragment>
+    );
+
+
     const list = () => (
         <div role="presentation">
-            <List>
+            {!isLoggedIn && <List className="logout-header__ite    gin-toggle text-decoration-none">
+                <i className="icon-user-active mr-2"/>
+                Business Login
+
+                {navigationLinks}
+            </List>
+            }
+            {isLoggedIn && <List>
                 <ListItem button onClick={handleClick} className="justify-content-center">
                     <div className="d-flex align-items-center menu-user">
                                          <span className="menu-user__name text-dark">
@@ -58,7 +75,7 @@ const Header = () => {
                 <Collapse in={open} timeout="auto" unmountOnExit>
                     <List component="div" disablePadding>
                         <Divider/>
-                        <Link to="/home">
+                        <Link to="/home" onClick={() => logout(false)}>
                             <ListItem button className={classes.nested}>
                                 Log Out
                             </ListItem>
@@ -66,6 +83,7 @@ const Header = () => {
                     </List>
                 </Collapse>
             </List>
+            }
         </div>
     );
 
@@ -78,32 +96,45 @@ const Header = () => {
                     <Navbar.Brand href="#home">
                         <img src={Logo} alt=""/>
                     </Navbar.Brand>
+
                     <Navbar.Toggle aria-controls="basic-navbar-nav" className="text-white"
                                    onClick={toggleDrawer('right', true)}/>
-                    <Navbar.Collapse id="basic-navbar-nav">
-                    </Navbar.Collapse>
-                    <NavDropdown id="basic-nav-dropdown" className="header-menu__item header-dropdown"
-                                 title={
-                                     <div className="d-flex align-items-center menu-user">
+                    {!isLoggedIn && <Navbar.Collapse id="basic-navbar-nav">
+                        <Nav className="mr-auto">
+                            <Nav.Link href="#home" className="header-menu__item d-flex align-items-center p-0 active">About
+                                Us</Nav.Link>
+                            <Nav.Link href="#link" className="header-menu__item d-flex align-items-center p-0">Add Your
+                                Business & Deals For <span className="ml-2"> FREE</span></Nav.Link>
+                            <Nav.Link href="#link" className="header-menu__item d-flex align-items-center p-0">Customer
+                                &
+                                Business App</Nav.Link>
+                        </Nav>
+                    </Navbar.Collapse>}
+                    {!isLoggedIn && <List className="logout-header__item text-decoration-none d-none d-xl-block">
+                        <i className="icon-user-active mr-2"/>
+                        Business Login</List>}
+                    {isLoggedIn && <NavDropdown id="basic-nav-dropdown" className="header-menu__item header-dropdown"
+                                                title={
+                                                    <div className="d-flex align-items-center menu-user">
                                          <span className="menu-user__name">
                                              {'Joe Flowers'}
                                          </span>
-                                         <figure
-                                             className="rounded-circle overflow-hidden m-0 menu-user__image bg-white">
-                                             <img className="thumbnail-image img-fluid w-100 h-100"
-                                                  src={DefaultImage}
-                                                  alt="user pic"
-                                             />
-                                         </figure>
-                                     </div>
-                                 }>
+                                                        <figure
+                                                            className="rounded-circle overflow-hidden m-0 menu-user__image bg-white">
+                                                            <img className="thumbnail-image img-fluid w-100 h-100"
+                                                                 src={DefaultImage}
+                                                                 alt="user pic"
+                                                            />
+                                                        </figure>
+                                                    </div>
+                                                }>
                         <Link to='/home'>
-                            <NavDropdown.Item href="#action/3.1">Log Out</NavDropdown.Item>
+                            <NavDropdown.Item href="#action/3.1" onClick={() => logout(false)}>Log
+                                Out</NavDropdown.Item>
                         </Link>
                     </NavDropdown>
-
+                    }
                 </Navbar>
-
                 <Drawer
                     anchor={'right'}
                     open={state['right']}

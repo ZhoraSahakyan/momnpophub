@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {BrowserRouter as Router, Redirect, Route, Switch} from "react-router-dom";
 
 import './App.css';
@@ -10,14 +10,16 @@ import Footer from "../components/footer/Footer";
 import DealDetails from "../pages/deal-details/Deal-details";
 
 function App() {
+    const [isLoggedIn, toggleLogin] = useState(false);
+
     return (
         // add main-container container class for business pages
         <main className="min-vh-100">
             <Router>
-                <Header/>
+                <Header isLoggedIn={isLoggedIn} logout={toggleLogin}/>
                 <Switch>
                     <Route path="/business-home" component={BusinessHome}/>
-                    <Route path="/home" component={Home}/>
+                    <Route path="/home" component={() => <Home login={toggleLogin}/>}/>
                     <Route path="/signup-success" component={SignupSuccess}/>
                     <Route path="/deal-details" component={DealDetails}/>
                     <Redirect to="/home"/>
