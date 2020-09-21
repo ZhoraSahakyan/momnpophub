@@ -19,9 +19,9 @@ const tutorialSteps = [
     },
 ];
 
-const CompletedSteper = () => {
+const CompletedSteper = ({ verify }) => {
     const theme = useTheme();
-    const [activeStep, setActiveStep] = React.useState(0);
+    const [activeStep, setActiveStep] = React.useState(1);
     const maxSteps = tutorialSteps.length;
 
     const handleNext = () => {
@@ -38,20 +38,22 @@ const CompletedSteper = () => {
                 <div className="row">
                     <div className=" col-sm-6 mb-2 mb-0">
                         <figure
-                            className="brand-image d-flex align-content-center justify-content-center flex-column w-100 h-100 logo-container">
-                            <img src={stripeImg} className="img-fluid w-100 h-auto" alt=""/>
-                        </figure>
-                    </div>
-                    <div className="col-sm-6 mb-2 mb-0">
-                        <figure
                             className="brand-image orange-border d-flex align-content-center justify-content-center flex-column w-100 h-100 logo-container">
                             <img src={achImg} className="img-fluid mb-3" alt=""/>
                             <img src={achDescImg} className="mt-1 img-fluid cl-house w-100 h-auto" alt=""/>
                         </figure>
                     </div>
+                    <div className="col-sm-6 mb-2 mb-0">
+                        <figure
+                            className="brand-image d-flex align-content-center justify-content-center flex-column w-100 h-100 logo-container">
+                            <img src={stripeImg} className="img-fluid w-100 h-auto" alt=""/>
+                        </figure>
+                    </div>
                 </div>
                 <div className="d-flex justify-content-end">
-                    <Button className='orange-button text-capitalize'>Setup Payment Method</Button>
+                    <Button className='orange-button text-capitalize'
+                            onClick={handleNext}
+                    >Setup Payment Method</Button>
                 </div>
             </div>),
         stepTwo = (
@@ -82,12 +84,14 @@ const CompletedSteper = () => {
                                   placeholder="Business Address associated with the account"/>
                 </Form.Group>
                 <div className="d-flex justify-content-end">
-                    <Button className='orange-button text-capitalize'>Verify payment method</Button>
+                    <Button className='orange-button text-capitalize'
+                            onClick={() => verify(true)}
+                    >Verify payment method</Button>
                 </div>
             </Form>
         );
 
-    let steps = activeStep === 0 ? stepOne : stepTwo;
+    let steps = activeStep === 1 ? stepOne : stepTwo;
 
     return (
         <div className="stepper-container">
@@ -96,22 +100,22 @@ const CompletedSteper = () => {
                 {steps}
             </div>
             <div className="position-absolute stepper-bullets d-flex flex-row flex-sm-column justify-content-between">
-                <div className="stepper-bullets__text">Step {maxSteps} of {activeStep + 1}</div>
+                <div className="stepper-bullets__text">Step {activeStep} of {maxSteps}</div>
                 <MobileStepper
                     className='justify-content-start p-0'
                     steps={maxSteps}
                     position="static"
-                    variant=""
+                    variant={null}
                     activeStep={activeStep}
-                    nextButton={
+                    nextButton={ activeStep !== maxSteps ?
                         <Button className='next rounded-circle p-0' size="small" onClick={handleNext}
-                                disabled={activeStep === maxSteps - 1}>
-                        </Button>
+                                disabled={activeStep === maxSteps}>
+                        </Button> : null
                     }
-                    backButton={
+                    backButton={ activeStep !== maxSteps ?
                         <Button className="back rounded-circle p-0" size="small" onClick={handleBack}
-                                disabled={activeStep === 0}>
-                        </Button>
+                                disabled={activeStep === 1}>
+                        </Button> : null
                     }
                 />
             </div>

@@ -20,7 +20,11 @@ const ExistingDetails = () => {
                 </thead>
                 <tbody>
                 <tr>
-                    <td className="align-middle bold-text">Friday - $30.00</td>
+                    <td className="align-middle bold-text">
+                        <Link to="/deal-details" className="details-name">
+                            Friday - $30.00 <i className="icon-eye"></i>
+                        </Link>
+                    </td>
                     <td className="align-middle bold-text">924</td>
                     <td className="align-middle bold-text">6/24/2020</td>
                     <td className="align-middle bold-text">12/24/2020</td>
@@ -28,7 +32,7 @@ const ExistingDetails = () => {
                     <td className="align-middle">
                         <button type="button"
                                 className="btn table-icon-btn  border-left-0 border-right-0 border-bottom-0 bg-transparent shadow-none p-0">
-                            <Link to='/deal-details'>
+                            <Link to='/deal-details?edit'>
                                 <i className="icon-pen"/>
                             </Link>
                         </button>
@@ -39,7 +43,12 @@ const ExistingDetails = () => {
                     </td>
                 </tr>
                 <tr>
-                    <td className="align-middle bold-text">Friday - $30.00</td>
+                    <td className="align-middle bold-text">
+                        <Link to="/deal-details" className="details-name">
+                            Friday - $30.00
+                            <i className="icon-eye"></i>
+                        </Link>
+                    </td>
                     <td className="align-middle bold-text">924</td>
                     <td className="align-middle bold-text">6/24/2020</td>
                     <td className="align-middle bold-text">12/24/2020</td>
@@ -47,7 +56,7 @@ const ExistingDetails = () => {
                     <td className="align-middle">
                         <button type="button"
                                 className="btn table-icon-btn  border-left-0 border-right-0 border-bottom-0 bg-transparent shadow-none p-0">
-                            <Link to='/deal-details'>
+                            <Link to='/deal-details?edit'>
                                 <i className="icon-pen"/>
                             </Link>
                         </button>

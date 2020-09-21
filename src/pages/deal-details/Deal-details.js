@@ -10,9 +10,10 @@ import  BlockHeader from '../../components/block-header/index';
 import chartImage from '../../assets/images/chart.png'
 
 import './Deal-details.css';
+import {Link} from "react-router-dom";
 
-const DealDetails = () => {
-    const [edit, setEdit] = useState(true);
+const DealDetails = ({ location }) => {
+    const [edit, setEdit] = useState(!!location.search.includes('edit'));
     const [page, setPage] = useState(false);
     const data = {
         dealName: 'Largest Summer Cyber Monday Sale',
@@ -28,14 +29,14 @@ const DealDetails = () => {
         <div className="col-12">
             <div className="d-flex flex-wrap bg-white deal-details overflow-hidden w-100">
                 <div className="w-100 main-header d-flex align-items-center">
-                    <a href="" className="back text-decoration-none">
+                    <Link to="/business-home?skip" className="back text-decoration-none">
                         <i className="icon-angle-left"/>
-                        Deals</a>
-                    <BlockHeader  title="Largest Summer Cyber Monday Sale" buttonText="Share deal" buttonIcon="icon-share-square"/>
+                        Home</Link>
+                    <BlockHeader title="Largest Summer Cyber Monday Sale" buttonText="Share deal" buttonIcon="icon-share-square"/>
                 </div>
                 <section className="col-md-6 p-0">
                     <div className="deal-details__header">
-                        <BlockHeader title="Deal details" buttonText="Edit deal" buttonIcon="icon-pen"/>
+                        <BlockHeader edit={edit} title="Deal details" buttonText="Edit deal" handler={setEdit} buttonIcon="icon-pen"/>
                     </div>
                     <FormComponent edit={edit} data={data} page={page}/>
                     <div className="deal-details__header">

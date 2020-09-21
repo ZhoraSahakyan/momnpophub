@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import BlockHeader from '../../components/block-header'
 import CompletedSetup from './completed-setup/Completed-setup';
 import CompletedSteper from './completed-steper/Completed-steper';
@@ -8,11 +8,12 @@ import './Bank-information.css';
 
 
 const BankInformation = () => {
+    const [isVerifyed, verify] = useState(false);
     return (
         <div>
-            <BlockHeader title="Bank information" buttonText="Edit payment information" buttonIcon="icon-pen"/>
-            {/*<CompletedSetup/>*/}
-            <CompletedSteper/>
+            <BlockHeader title="Bank information" buttonText="Edit payment information" buttonIcon="icon-pen" handler={() => verify(false)}/>
+            {isVerifyed && <CompletedSetup/>}
+            {!isVerifyed && <CompletedSteper verify={verify}/>}
         </div>
     )
 };

@@ -16,7 +16,7 @@ const DealDetails = () => {
     const [page, setPage] = useState(false);
     const data = {
         dealName: 'Largest Summer Cyber Monday Sale',
-        servicePicture: 'profil_image.png',
+        servicePicture: '',
         originalPrice: '$500.00',
         discountedPrice: '$300.00',
         dealStartDate: '06/13/2020',

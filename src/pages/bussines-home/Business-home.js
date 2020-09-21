@@ -6,7 +6,6 @@ import Customers from '../../components/customers/Customers'
 import './Business-home.css';
 
 const BusinessHome = ({ location }) => {
-    console.log(location);
     return (
             <div className=" col-xl-11 mx-auto">
                 <div className="row">

@@ -28,9 +28,9 @@ const DetailsEmpty = ( { createDeal } ) => {
                         </Button>
                     </div>
                 </div>
-                <firgure className="d-flex justify-content-end empty-details__image">
+                <figure className="d-flex justify-content-end empty-details__image">
                     <img src={detailsImage} className="w-50" alt=""/>
-                </firgure>
+                </figure>
                 <p className="empty-details__description text-center">Here you can view your active and past deals as
                     well as the activity
                     and sales reports on each of them. </p>

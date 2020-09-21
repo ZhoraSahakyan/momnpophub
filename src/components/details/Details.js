@@ -11,8 +11,8 @@ import './Details.css';
 const Details = () => {
     const [state, changeState] = useState('empty');
     return (
-        <div className=" d-flex flex-column h-100">
-            <div className="flex-grow-1  d-flex flex-column">
+        <div className="d-flex flex-column h-100">
+            <div className="flex-grow-1 d-flex flex-column">
                 <BlockHeader title="Deals" buttonText="+ Create new deal" handler={() => changeState('details')}/>
                 {state === 'details' && <CreateDetails publish={changeState}/>}
                 {state === 'list' && <ExistingDetails/>}

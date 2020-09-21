@@ -8,8 +8,7 @@ import './Form-component.css';
 
 const FormComponent = ({edit, data, page, publish}) => {
     let checkboxDisabled = !page ? 'd-none' : 'd-flex justify-content-between align-items-center',
-        image = !data.servicePicture ? ( <i className="icon-image d-block"/>) : (
-            <img src={imageProfile} className="w-100 h-100 file-upload-container__image" alt=""/>),
+        image = !data.servicePicture ? (<img src={imageProfile} className="w-100 h-100 file-upload-container__image" alt=""/>) : (<i className="icon-image d-block align-self-center"/>),
         fileUploadClasses = !data.servicePicture ? 'position-relative file-upload-container bg-white d-flex align-content-center justify-content-center overflow-hidden' : 'position-relative file-upload-container bg-white d-flex align-content-center justify-content-center overflow-hidden p-0'
     return (
         <Form className="create-details-form-container">
@@ -69,7 +68,7 @@ const FormComponent = ({edit, data, page, publish}) => {
                     <CheckboxContainer labetText="Send SMS notification to customers"/>
                 </Form.Group>
                 <Button variant="link" className="text-decoration-none shadow-none green-btn" type="submit"
-                    onClick={() => publish('list')}
+                        onClick={() => publish('list')}
                 >
                     Publish deal
                 </Button>
