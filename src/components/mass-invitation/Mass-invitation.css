@@ -17,6 +17,7 @@ button.mass-invitation:active i,
   color: #747474;
   font-size: 18px;
   margin-right: 20px;
+  line-height: 1;
 }
 
 .dropdown-container .dropdown-toggle::after{

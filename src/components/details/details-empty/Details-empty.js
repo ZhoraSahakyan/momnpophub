@@ -4,7 +4,7 @@ import './Details-empty.css';
 import detailsImage from './../../../assets/images/deals-illustration.svg'
 const DetailsEmpty = ( { createDeal } ) => {
     return (
-        <div className="empty-details-container position-relative overflow-hidden">
+        <div className="empty-details-container position-relative overflow-hidden flex-grow-1 mb-0">
             <div className="position-relative empty-details">
                 <div className="empty-item bg-white align-items-center">
                     <div className="empty-item__number">1.</div>
@@ -28,9 +28,9 @@ const DetailsEmpty = ( { createDeal } ) => {
                         </Button>
                     </div>
                 </div>
-                <figure className="d-flex justify-content-end empty-details__image">
+                <firgure className="d-flex justify-content-end empty-details__image">
                     <img src={detailsImage} className="w-50" alt=""/>
-                </figure>
+                </firgure>
                 <p className="empty-details__description text-center">Here you can view your active and past deals as
                     well as the activity
                     and sales reports on each of them. </p>
