@@ -319,7 +319,8 @@
 
 @media all and (max-width: 767px) {
   .home-main-block {
-    background-size:100% 800px;
+    background-size: cover;
+    background-position: center;
   }
   .home-main-block__title{
     font-size: 20px;

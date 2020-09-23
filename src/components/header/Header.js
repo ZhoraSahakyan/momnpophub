@@ -1,12 +1,12 @@
 import React from 'react';
-import {Link, useHistory, useLocation} from 'react-router-dom';
-import {Nav, Navbar, NavDropdown} from 'react-bootstrap';
+import { Link, useHistory, useLocation } from 'react-router-dom';
+import { Nav, Navbar, NavDropdown } from 'react-bootstrap';
 
 import './Header.css';
 import Logo from '../../assets/images/logo/momnpophub-logo.svg';
 import DefaultImage from '../../assets/images/default.png';
 
-import {makeStyles} from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
@@ -22,11 +22,11 @@ const useStyles = makeStyles({
 	},
 });
 
-const Header = ({isLoggedIn, logout}) => {
+const Header = ({ isLoggedIn, logout }) => {
 	const history = useHistory();
 
 	const classes = useStyles();
-	const [state, setState] = React.useState({right: false});
+	const [state, setState] = React.useState({ right: false });
 	const [open, setOpen] = React.useState(false);
 	let location = useLocation().pathname,
 		headerClass = location !== '/home' ? 'logout-header' : null;
@@ -41,7 +41,7 @@ const Header = ({isLoggedIn, logout}) => {
 			return;
 		}
 
-		setState({...state, [anchor]: open});
+		setState({ ...state, [anchor]: open });
 	};
 
 	const navigationLinks = [
@@ -57,20 +57,23 @@ const Header = ({isLoggedIn, logout}) => {
 			title: 'Customer & Business App',
 			path: 'customer-business-app'
 		}].map((link, index) =>
-		<React.Fragment key={index + link.title}>
-			<Divider/>
-			<ListItem button className="justify-content-center" onClick={() => history.push(`/${link.path}`)}>
-				{link.title}
-			</ListItem>
-		</React.Fragment>
-	);
+			<React.Fragment key={index + link.title}>
+				<Divider />
+				<ListItem button className="justify-content-center"
+					selected={location === '/' + link.path}
+					classes={{ selected: 'active' }}
+					onClick={() => { setState({ 'right': false }); history.push(`/${link.path}`) }}>
+					{link.title}
+				</ListItem>
+			</React.Fragment>
+		);
 
 
 	const list = () => (
 		<div role="presentation">
 			{!isLoggedIn && <List className="logout-header__ite    gin-toggle text-decoration-none">
 				<ListItem className='d-flex justify-content-center align-items-center'> <i
-					className="icon-user-active mr-2"/>
+					className="icon-user-active mr-2" />
 					Business Login
 				</ListItem>
 				{navigationLinks}
@@ -79,24 +82,22 @@ const Header = ({isLoggedIn, logout}) => {
 			{isLoggedIn && <List>
 				<ListItem button onClick={handleClick} className="justify-content-center">
 					<div className="d-flex align-items-center menu-user">
-                                         <span className="menu-user__name text-dark">
-                                             {'Joe Flowers'}
-                                         </span>
+						<span className="menu-user__name text-dark">
+							{'Joe Flowers'}
+						</span>
 						<figure className="rounded-circle overflow-hidden m-0 menu-user__image bg-white">
 							<img className="thumbnail-image img-fluid w-100 h-100"
-							     src={DefaultImage}
-							     alt="user pic"
+								src={DefaultImage}
+								alt="user pic"
 							/>
 						</figure>
 					</div>
 				</ListItem>
 				<ListItem>
-					<Divider/>
-					<Link to="/home" onClick={() => logout(false)}>
-						<ListItem button className={classes.nested}>
-							Log Out
+					<Divider />
+					<ListItem button className={classes.nested} onClick={() => { setState({ 'right': false }); logout(false); history.push('/about-us') }}>
+						Log Out
 						</ListItem>
-					</Link>
 				</ListItem>
 			</List>
 			}
@@ -109,11 +110,11 @@ const Header = ({isLoggedIn, logout}) => {
 					className="header-menu col-xl-11 mx-auto d-flex align-content-center justify-content-between"
 					expand="xl">
 					<Navbar.Brand href="#home">
-						<img src={Logo} alt=""/>
+						<img src={Logo} alt="" />
 					</Navbar.Brand>
 
 					<Navbar.Toggle aria-controls="basic-navbar-nav" className="text-white"
-					               onClick={toggleDrawer('right', true)}/>
+						onClick={toggleDrawer('right', true)} />
 					{!isLoggedIn && <Navbar.Collapse id="basic-navbar-nav">
 						<Nav className="mr-auto">
 							<Nav.Link
@@ -134,23 +135,23 @@ const Header = ({isLoggedIn, logout}) => {
 						</Nav>
 					</Navbar.Collapse>}
 					{!isLoggedIn && <List className="logout-header__item text-decoration-none d-none d-xl-block">
-						<i className="icon-user-active mr-2"/>
+						<i className="icon-user-active mr-2" />
 						Business Login</List>}
 					{isLoggedIn && <NavDropdown id="basic-nav-dropdown" className="header-menu__item header-dropdown"
-					                            title={
-						                            <div className="d-flex align-items-center menu-user">
-                                         <span className="menu-user__name">
-                                             {'Joe Flowers'}
-                                         </span>
-							                            <figure
-								                            className="rounded-circle overflow-hidden m-0 menu-user__image bg-white">
-								                            <img className="thumbnail-image img-fluid w-100 h-100"
-								                                 src={DefaultImage}
-								                                 alt="user pic"
-								                            />
-							                            </figure>
-						                            </div>
-					                            }>
+						title={
+							<div className="d-flex align-items-center menu-user">
+								<span className="menu-user__name">
+									{'Joe Flowers'}
+								</span>
+								<figure
+									className="rounded-circle overflow-hidden m-0 menu-user__image bg-white">
+									<img className="thumbnail-image img-fluid w-100 h-100"
+										src={DefaultImage}
+										alt="user pic"
+									/>
+								</figure>
+							</div>
+						}>
 						<Link to='/home'>
 							<NavDropdown.Item href="#action/3.1" onClick={() => logout(false)}>
 								Log Out
@@ -162,7 +163,7 @@ const Header = ({isLoggedIn, logout}) => {
 				<Drawer
 					anchor={'right'}
 					open={state['right']}
-					onClose={toggleDrawer('right', false)}
+					onClose={toggleDrawer('right', false).bind(this)}
 				>
 
 					{list()}
