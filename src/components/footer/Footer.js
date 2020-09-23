@@ -1,7 +1,10 @@
 import React from 'react';
+import {Link, useHistory} from 'react-router-dom';
 import './Footer.css';
 
 const Footer = () => {
+	const history = useHistory();
+
 	return (
 		<footer className="col-xl-11 mx-auto">
 			<ul className="list-unstyled d-flex justify-content-center flex-wrap">
@@ -40,17 +43,25 @@ const Footer = () => {
 			</ul>
 			<ul className="footer-menu d-flex justify-content-between list-unstyled flex-wrap position-relative">
 				<li className="footer-menu__item text-center">
-					<a href="" className="footer-menu__item__link text-decoration-none">About Us</a>
+					<Link to = '/about-us'
+					   className="footer-menu__item__link text-decoration-none">About Us
+					</Link>
 				</li>
 				<li className="footer-menu__item text-center">
-					<a href="" className="footer-menu__item__link text-decoration-none">Add Your Business & Deals
-						For <span>FREE</span></a>
+					<Link to='/free-business-invitation'
+					      className="footer-menu__item__link text-decoration-none">Add Your Business & Deals
+						For <span>FREE</span>
+					</Link>
 				</li>
 				<li className="footer-menu__item text-center">
-					<a href="" className="footer-menu__item__link text-decoration-none">Customer & Business App</a>
+					<Link to='/customer-business-app'
+					      className="footer-menu__item__link text-decoration-none">Customer & Business App</Link>
 				</li>
 				<li className="footer-menu__item text-center">
-					<a href="" className="footer-menu__item__link text-decoration-none">Terms & Conditions</a>
+					<a href="https://app.termly.io/document/terms-of-use-for-website/cfb6f95a-3618-425f-b4c8-44bd59264001"
+					   target="_blankk"
+					   rel="noreferrer"
+					   className="footer-menu__item__link text-decoration-none">Terms & Conditions</a>
 				</li>
 				<li className="footer-menu__item text-center">© 2020 Mom&Pop. All rights reserved.</li>
 			</ul>
