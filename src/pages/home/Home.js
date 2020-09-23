@@ -19,13 +19,13 @@ const Home = () => {
         <div className="home-first-block">
             <div className=" col-xl-11 mx-auto">
                 <div className="row">
-                    <div className="col-md-7">
+                    <div className="col-md-7 d-flex flex-column align-items-center align-items-md-start">
                         <h1 className="text-white home-main-block__title">WE ADVERTISE YOUR SMALL BUSINESS & DEALS FOR FREE</h1>
                         <Button variant="btn" className="red-btn" type="button" onClick={() => history.push('/free-business-invitation')}>
                             Signup for FREE
                         </Button>
                     </div>
-                    <div className=" col-7 mx-auto col-md-5 home-main-block__img">
+                    <div className=" col-7 mx-auto col-md-5 home-main-block__img d-none d-md-block">
                         <img src={defaultImage} alt=""/>
                     </div>
                 </div>
