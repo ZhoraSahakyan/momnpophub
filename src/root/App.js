@@ -1,5 +1,6 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {BrowserRouter as Router, Redirect, Route, Switch} from "react-router-dom";
+import {withRouter} from 'react-router'
 
 import './App.css';
 import BusinessHome from "../pages/bussines-home/Business-home";
@@ -8,26 +9,42 @@ import SignupSuccess from "../pages/signup-success";
 import Header from "../components/header/Header";
 import Footer from "../components/footer/Footer";
 import DealDetails from "../pages/deal-details/Deal-details";
+import CustomerBusinessApp from "../pages/customer-business-app";
+import SignUp from "../pages/sign-up";
 
-function App() {
-    const [isLoggedIn, toggleLogin] = useState(false);
+const App = ({match, location, history}) => {
+	const [isLoggedIn, toggleLogin] = useState(false);
+	let mainClass = `${location.pathname === '/about-us' ? 'home-main-block' : 'container'}`;
 
-    return (
-        // add main-container container class for business pages
-        <main className="min-vh-100">
-            <Router>
-                <Header isLoggedIn={isLoggedIn} logout={toggleLogin}/>
-                <Switch>
-                    <Route path="/business-home" component={BusinessHome}/>
-                    <Route path="/home" component={() => <Home login={toggleLogin}/>}/>
-                    <Route path="/signup-success" component={SignupSuccess}/>
-                    <Route path="/deal-details" component={DealDetails}/>
-                    <Redirect to="/home"/>
-                </Switch>
-                <Footer/>
-            </Router>
-        </main>
-    );
-}
+	switch (location.pathname) {
+		case '/about-us':
+			mainClass = 'home-main-block';
+			break;
+		case '/business-home':
+			mainClass = 'main-container';
+			break;
+		default:
+			mainClass = '';
+	}
 
-export default App;
+
+	return (
+		// add main-container container class for business pages
+		// add home-main-block  class for home page
+		<main className={`min-vh-100 ${mainClass}`}>
+			<Header isLoggedIn={isLoggedIn} logout={toggleLogin}/>
+			<Switch>
+				<Route path="/free-business-invitation" component={() => <SignUp login={toggleLogin}/>}/>
+				<Route path="/business-home" component={BusinessHome}/>
+				<Route path="/signup-success" component={SignupSuccess}/>
+				<Route path="/deal-details" component={DealDetails}/>
+				<Route path="/customer-business-app" component={CustomerBusinessApp}/>
+				<Route exact path="/about-us" component={Home}/>
+				<Redirect to="/about-us"/>
+			</Switch>
+			<Footer/>
+		</main>
+	);
+};
+
+export default withRouter(App);

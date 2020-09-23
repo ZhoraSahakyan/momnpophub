@@ -7,7 +7,7 @@ import './Business-home.css';
 
 const BusinessHome = ({ location }) => {
     return (
-            <div className=" col-xl-11 mx-auto">
+            <div className=" col-xl-11 mx-auto main-container container">
                 <div className="row">
                     <div className="col-xl-6  mb-4">
                     <Customers query={location.search}/>

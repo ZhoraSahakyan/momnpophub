@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {useTheme} from '@material-ui/core/styles';
 import MobileStepper from '@material-ui/core/MobileStepper';
 import Button from '@material-ui/core/Button';
@@ -21,7 +21,7 @@ const tutorialSteps = [
 
 const CompletedSteper = ({ verify }) => {
     const theme = useTheme();
-    const [activeStep, setActiveStep] = useState(1);
+    const [activeStep, setActiveStep] = React.useState(1);
     const maxSteps = tutorialSteps.length;
 
     const handleNext = () => {
